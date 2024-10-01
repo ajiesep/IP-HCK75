@@ -19,6 +19,22 @@ class UserController {
       next(error);
     }
   }
+
+  static async login(req, res, next) {
+    try {
+      const { email, password } = req.body;
+
+      if (!email || !password) throw { name: "emailorpasswordempty" };
+
+      const user = await User.findOne({ where: { email } });
+      if (!user || !comparePassword(password, user.password))
+        throw { name: "InvalidUser" };
+
+      res.status(200).json({ access_token: signToken({ id: user.id }) });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 
 module.exports = UserController;
