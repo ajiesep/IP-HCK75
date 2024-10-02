@@ -47,4 +47,16 @@ const getSearchMovies = async () => {
   return response;
 };
 
+const getNowPlayingMovie = async () => {
+  const response = await axios.get(
+    "https://api.themoviedb.org/3/movie/now_playing",
+    {
+      headers: {
+        Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+      },
+    }
+  );
+  return response;
+};
+
 export { getTrendingMovies, endpoint, getConfigurasionMovies, getSearchMovies };

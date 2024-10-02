@@ -1,29 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BannerHome from "../components/BannerHome";
 import { useSelector } from "react-redux";
 import Card from "../components/Card";
+import HorizontalScrollCard from "../components/HorizontalScrollCard";
+import axios from "axios";
 
 const Home = () => {
-  const trandingData = useSelector((state) => state.movieoData.bannerData);
+  const trendingData = useSelector((state) => state.movieoData.bannerData);
+  const [nowPlayingData, setNowPlayingData] = useState([]);
+
+  const fetchNowPlayingData = async () => {
+    try {
+      const response = await axios.get("movie/now_playing");
+      fetchNowPlayingData(response.data.data.results);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchNowPlayingData();
+  }, []);
+
   return (
     <div>
       <BannerHome />
-
-      <div className="container px-3 mx-auto my-10">
-        <h2 className="mb-2 text-xl font-bold lg:text-2xl">Trending Movie</h2>
-        <div className="grid grid-cols-[repeat(auto-fit,230px)] gap-6">
-          {trandingData.map((data, index) => {
-            return (
-              <Card
-                key={data.id}
-                data={data}
-                index={index + 1}
-                trending={true}
-              />
-            );
-          })}
-        </div>
-      </div>
+      <HorizontalScrollCard data={trendingData} heading={"Trending"} />
+      <HorizontalScrollCard data={nowPlayingData} heading={"Now Playing"} />
     </div>
   );
 };
