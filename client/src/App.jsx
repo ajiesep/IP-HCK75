@@ -1,12 +1,19 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import MobileNavigation from "./components/MobileNavigation";
 
 function App() {
   return (
-    <>
-      <h1 className="text-xl font-bold text-red-500">
-        Tailwindcss with react vite
-      </h1>
-    </>
+    <main className="pb-14 lg:pb-0">
+      <Header />
+      <div className="pt-16">
+        <Outlet />
+      </div>
+      <Footer />
+      <MobileNavigation />
+    </main>
   );
 }
 
