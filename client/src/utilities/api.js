@@ -59,4 +59,10 @@ const getNowPlayingMovie = async () => {
   return response;
 };
 
-export { getTrendingMovies, endpoint, getConfigurasionMovies, getSearchMovies };
+export {
+  getTrendingMovies,
+  endpoint,
+  getConfigurasionMovies,
+  getSearchMovies,
+  getNowPlayingMovie,
+};

@@ -5,12 +5,20 @@ import Header from "./components/Header";
 import MobileNavigation from "./components/MobileNavigation";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getConfigurasionMovies, getTrendingMovies } from "./utilities/api";
-import { setBannerData, setImageURL } from "./store/movieoSlice";
+import {
+  getConfigurasionMovies,
+  getTrendingMovies,
+  getNowPlayingMovie,
+} from "./utilities/api";
+import {
+  setBannerData,
+  setImageURL,
+  setNowPlayingData,
+} from "./store/movieoSlice";
 
 function App() {
   const dispatch = useDispatch();
-
+  // ngambil data yg trending
   const fetchTrendingData = async () => {
     try {
       const response = await getTrendingMovies();
@@ -22,7 +30,7 @@ function App() {
   useEffect(() => {
     fetchTrendingData();
   }, []);
-
+  // ngambil data configurasi
   async function fecthConfigurasion() {
     try {
       const response = await getConfigurasionMovies();
@@ -33,7 +41,21 @@ function App() {
   }
   useEffect(() => {
     fecthConfigurasion();
-    fecthConfigurasion();
+    // fecthConfigurasion();
+  }, []);
+
+  // ngambil data now playing
+  const fetchNowPlayingData = async () => {
+    try {
+      const response = await getNowPlayingMovie(); // Assuming this is the correct API call
+      dispatch(setNowPlayingData(response.data.results)); // Dispatch with the response data
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNowPlayingData();
   }, []);
 
   return (
