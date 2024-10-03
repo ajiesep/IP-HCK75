@@ -9,7 +9,7 @@ const getTrendingMovies = async () => {
       },
     }
   );
-  console.log(response, "?????????????????");
+  //   console.log(response, "?????????????????");
 
   return response;
 };
@@ -59,10 +59,20 @@ const getNowPlayingMovie = async () => {
   return response;
 };
 
+const getNowTvShow = async () => {
+  const response = await axios.get("https://api.themoviedb.org/3/discover/tv", {
+    headers: {
+      Authorization: `Bearer ${import.meta.env.VITE_ACCESS_TOKEN}`,
+    },
+  });
+  return response;
+};
+
 export {
   getTrendingMovies,
   endpoint,
   getConfigurasionMovies,
   getSearchMovies,
   getNowPlayingMovie,
+  getNowTvShow,
 };
