@@ -1,13 +1,35 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, redirect } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
 import ExplorePage from "../pages/ExplorePage";
 import DetailsPage from "../pages/DetailsPage";
 import SearchPage from "../pages/SearchPage";
 import GeminiAi from "../pages/GeminiAi";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import Login from "../pages/Login";
 
 const router = createBrowserRouter([
   {
+    path: "/login",
+    element: (
+      <GoogleOAuthProvider clientId="554479727507-70867vtpo11qqa220uvc2hcn7j99ccch.apps.googleusercontent.com">
+        <Login />
+      </GoogleOAuthProvider>
+    ),
+    loader: () => {
+      if (localStorage.getItem("token")) {
+        return redirect("/");
+      }
+      return null;
+    },
+  },
+  {
+    loader: () => {
+      if (!localStorage.getItem("token")) {
+        return redirect("/login");
+      }
+      return null;
+    },
     path: "/",
     element: <App />,
     children: [
@@ -28,7 +50,6 @@ const router = createBrowserRouter([
         path: "search",
         element: <SearchPage />,
       },
-      {},
     ],
   },
 ]);

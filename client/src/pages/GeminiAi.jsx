@@ -101,62 +101,6 @@ export default function GeminiAi() {
   };
 
   return (
-    // <div
-    //   className="flex items-center justify-center min-h-screen mt-8"
-    //   style={{
-    //     backgroundImage:
-    //       "url('https://images.alphacoders.com/134/thumb-1920-1343899.png')",
-    //     backgroundSize: "cover",
-    //     backgroundPosition: "center",
-    //   }}
-    // >
-    //   <div className="w-full max-w-4xl p-8 shadow-lg bg-zinc-800 bg-opacity-80 rounded-xl">
-    //     <h1 className="mb-8 text-3xl font-bold text-center text-zinc-100">
-    //       Gemini AI Chat
-    //     </h1>
-    //     <div className="p-6 mb-6 space-y-4 overflow-y-auto rounded-lg shadow-inner h-96 bg-zinc-700">
-    //       {messages.map((message, index) => (
-    //         <div
-    //           key={index}
-    //           className={`p-4 rounded-lg break-words ${
-    //             message.role === "user"
-    //               ? "bg-zinc-600 text-zinc-100 border-l-4 border-teal-500"
-    //               : "bg-zinc-800 text-zinc-100 border-l-4 border-purple-500"
-    //           }`}
-    //           style={{
-    //             maxWidth: "80%",
-    //             marginLeft: message.role === "user" ? "auto" : "0",
-    //             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-    //           }}
-    //         >
-    //           {message.text}
-    //         </div>
-    //       ))}
-    //     </div>
-    //     {error && <div className="mb-6 text-center text-red-400">{error}</div>}
-    //     <div className="flex">
-    //       <input
-    //         type="text"
-    //         className="flex-grow p-4 rounded-l-lg bg-zinc-700 text-zinc-100 placeholder-zinc-400 focus:outline-none focus:ring-teal-500"
-    //         placeholder="Type a message..."
-    //         value={userInput}
-    //         onChange={(e) => setUserInput(e.target.value)}
-    //         onKeyPress={handleKeyPress}
-    //       />
-    //       <button
-    //         className={`p-4 rounded-r-lg ${
-    //           loading
-    //             ? "bg-zinc-600 cursor-not-allowed"
-    //             : "bg-zinc-600 hover:bg-zinc-500"
-    //         } text-zinc-100 font-semibold transition duration-300`}
-    //         onClick={handleSendMessage}
-    //         disabled={loading}
-    //       >
-    //         {loading ? "Sending..." : "Send"}
-    //       </button>
-    //     </div>
-    //   </div>
-    // </div>
     <div
       className="flex items-center justify-center min-h-screen mt-8"
       style={{

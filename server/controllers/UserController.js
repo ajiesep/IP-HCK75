@@ -3,10 +3,12 @@ const { comparePassword, hashPassword } = require("../helpers/bcrypt");
 
 const { OAuth2Client } = require("google-auth-library");
 const { where } = require("sequelize");
+const { signToken } = require("../helpers/jwt");
 const client = new OAuth2Client();
 
 class UserController {
   static async register(req, res, next) {
+    console.log("masuk controller");
     const { userName, email, password } = req.body;
     try {
       const user = await User.create({
@@ -46,14 +48,14 @@ class UserController {
       console.log(google_token);
 
       const ticket = await client.verifyIdToken({
-        idToken: token,
+        idToken: google_token,
         audience: process.env.GOOGLE_CLIENT_ID,
       });
       const payload = ticket.getPayload();
 
       //   cek ke db sendiri apakah user tersebutsudah terdaftar apa belom?
       //    kalau belom kita daftarin dulu, lalu lanjut login
-      const [user, created] = await user.findOrCreaete({
+      const [user, created] = await User.findOrCreate({
         where: { email: payload.email },
         defaults: {
           userName: payload.name,
