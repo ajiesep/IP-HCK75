@@ -2,7 +2,7 @@
 // import { SiThemoviedatabase } from "react-icons/si";
 // import { PiListPlusFill } from "react-icons/pi";
 // import { ImSearch } from "react-icons/im";
-// import { SiGooglegemini } from "react-icons/si";
+import { SiGooglegemini } from "react-icons/si";
 import { MdHomeFilled } from "react-icons/md";
 import { PiTelevisionFill } from "react-icons/pi";
 import { BiSolidMoviePlay } from "react-icons/bi";
@@ -19,11 +19,11 @@ export const navigation = [
     href: "movie",
     icons: <BiSolidMoviePlay />,
   },
-  // {
-  //   label: "Gemini AI",
-  //   href: "gemini",
-  //   icons: <SiGooglegemini />,
-  // },
+  {
+    label: "AI asik-asik",
+    href: "gemini",
+    icons: <SiGooglegemini />,
+  },
 ];
 export const mobileNavigation = [
   {

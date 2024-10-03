@@ -4,12 +4,14 @@ import Home from "../pages/Home";
 import ExplorePage from "../pages/ExplorePage";
 import DetailsPage from "../pages/DetailsPage";
 import SearchPage from "../pages/SearchPage";
+import GeminiAi from "../pages/GeminiAi";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
+      { path: "/gemini", element: <GeminiAi /> },
       {
         path: "",
         element: <Home />,
