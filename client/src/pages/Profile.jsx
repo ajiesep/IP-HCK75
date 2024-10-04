@@ -15,9 +15,7 @@ export default function Profile() {
   const fetchProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get(
-        `http://localhost:3000/profile/${token}`
-      );
+      const response = await axios.get(`http://16.171.19.214/profile/${token}`);
       setUser(response.data);
       setLoading(false);
     } catch (err) {
@@ -42,7 +40,7 @@ export default function Profile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.put(
-        `http://localhost:3000/profile/${token}`,
+        `http://16.171.19.214/profile/${token}`,
         { profilePicture: imageLink },
         {
           headers: {
@@ -65,7 +63,7 @@ export default function Profile() {
     try {
       const token = localStorage.getItem("token");
       const response = await axios.delete(
-        `http://localhost:3000/profile/${token}/image`,
+        `http://16.171.19.214/profile/${token}/image`,
         {
           headers: {
             "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function Login() {
     try {
       const { data } = await axios({
         method: "POST",
-        url: "http://localhost:3000/google-login",
+        url: "http://16.171.19.214/google-login",
         headers: {
           google_token: response.credential,
         },
