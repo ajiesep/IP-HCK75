@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Card from "./Card";
 import { VscTriangleRight, VscTriangleLeft } from "react-icons/vsc";
 
-const HorizontalScrollCard = ({ data = [], heading, trending }) => {
+const HorizontalScrollCard = ({ data = [], heading, trending, media_type }) => {
   const containerRef = useRef();
 
   const handleNext = () => {
@@ -32,6 +32,7 @@ const HorizontalScrollCard = ({ data = [], heading, trending }) => {
                   data={item}
                   index={index + 1}
                   trending={trending}
+                  media_type={media_type}
                 />
               ))
             ) : (

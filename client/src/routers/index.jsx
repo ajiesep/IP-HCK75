@@ -7,6 +7,7 @@ import SearchPage from "../pages/SearchPage";
 import GeminiAi from "../pages/GeminiAi";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import Login from "../pages/Login";
+import Profile from "../pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
       {
         path: "search",
         element: <SearchPage />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

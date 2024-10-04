@@ -47,7 +47,11 @@ const Home = () => {
         heading="Trending"
         trending={true}
       />
-      <HorizontalScrollCard data={nowPlayingData} heading="Now Playing" />
+      <HorizontalScrollCard
+        data={nowPlayingData}
+        heading="Now Playing"
+        media_type={"movie"}
+      />
     </div>
   );
 };

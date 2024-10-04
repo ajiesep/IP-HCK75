@@ -71,7 +71,9 @@ const Header = () => {
             </Link>
           </form>
           <div className="w-8 h-8 overflow-hidden transition-all rounded-full cursor-pointer active:scale-50">
-            <img src={userIcon} width="w-ful h-full" />
+            <Link to="/profile">
+              <img src={userIcon} width="w-ful h-full" />
+            </Link>
           </div>
         </div>
       </div>

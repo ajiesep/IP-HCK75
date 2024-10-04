@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   bannerData: [],
   imageURL: "",
-  nowPlayingData: [], // Now playing data state
+  nowPlayingData: [],
 };
 
 export const movieoSlice = createSlice({
@@ -17,7 +17,7 @@ export const movieoSlice = createSlice({
       state.imageURL = action.payload;
     },
     setNowPlayingData: (state, action) => {
-      state.nowPlayingData = action.payload; // Reducer for handling Now Playing movies
+      state.nowPlayingData = action.payload;
     },
   },
 });

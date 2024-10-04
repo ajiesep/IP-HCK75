@@ -11,7 +11,6 @@ const ExplorePage = () => {
 
   console.log("params", params.explore);
 
-  // Function to fetch explore data (e.g., discover movies or TV shows)
   const fetchData = async () => {
     try {
       // const response = await axios.get(`/discover/${params.explore}`, {
@@ -25,15 +24,13 @@ const ExplorePage = () => {
         {
           params: {
             page: pageNo,
-            api_key: import.meta.env.VITE_API_KEY, // Assuming you are using an API key
+            api_key: import.meta.env.VITE_API_KEY,
           },
         }
       );
 
-      // Log the response to inspect its structure
       console.log("API Response:", response.data);
 
-      // Ensure that 'results' is an array before setting state
       if (response.data && Array.isArray(response.data.results)) {
         setData((prev) => [...prev, ...response.data.results]);
         setTotalPageNo(response.data.total_pages);
@@ -56,15 +53,15 @@ const ExplorePage = () => {
   }, [pageNo]);
 
   useEffect(() => {
-    setPageNo(1); // Reset to page 1 when the explore parameter changes
-    setData([]); // Clear the current data before fetching new data
+    setPageNo(1);
+    setData([]);
     fetchData();
   }, [params.explore]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll); // Clean up scroll event listener
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
