@@ -35,11 +35,11 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notEmpty: {
             args: true,
-            message: "Username cannot be empty",
+            message: "Email cannot be empty",
           },
           notNull: {
             args: true,
-            message: "Username cannot be null",
+            message: "Email cannot be null",
           },
           isEmail: {
             message: "Email must be a valid email address",
@@ -59,6 +59,11 @@ module.exports = (sequelize, DataTypes) => {
             message: "Password cannot be null",
           },
         },
+      },
+      profilePicture: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        defaultValue: "https://picsum.photos/200/300",
       },
     },
     {
